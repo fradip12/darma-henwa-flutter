@@ -14,20 +14,25 @@ class HomePage extends StatelessWidget {
           Icon(Icons.notifications),
         ],
       ),
-      body: Container(
-        width: 300,
-        height: 160,
-        margin: EdgeInsets.all(16),
-        padding: EdgeInsets.all(16),
-        decoration: BoxDecoration(
-          color: Colors.amber,
-          border: Border.all(),
-          borderRadius: BorderRadius.circular(16),
-        ),
+      body: Center(
         child: Container(
           width: 300,
           height: 160,
-          color: Colors.black,
+          margin: EdgeInsets.all(16),
+          padding: EdgeInsets.all(16),
+          decoration: BoxDecoration(
+            color: Colors.amber,
+            border: Border.all(),
+            borderRadius: BorderRadius.circular(16),
+          ),
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              Text('Flutter Dev'),
+              Text('by'),
+              Text('Google'),
+            ],
+          ),
         ),
       ),
       bottomNavigationBar: BottomNavigationBar(
