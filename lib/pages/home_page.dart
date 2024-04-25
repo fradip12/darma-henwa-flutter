@@ -14,6 +14,23 @@ class HomePage extends StatelessWidget {
           Icon(Icons.notifications),
         ],
       ),
+      body: Placeholder(),
+      bottomNavigationBar: BottomNavigationBar(
+        items: [
+          BottomNavigationBarItem(
+            label: 'Homepage',
+            icon: Icon(Icons.home),
+          ),
+          BottomNavigationBarItem(
+            label: 'Chat',
+            icon: Icon(Icons.chat),
+          ),
+          BottomNavigationBarItem(
+            label: 'Settings',
+            icon: Icon(Icons.settings),
+          )
+        ],
+      ),
     );
   }
 }
