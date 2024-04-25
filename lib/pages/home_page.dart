@@ -20,11 +20,15 @@ class HomePage extends StatelessWidget {
           child: ListView.builder(
             itemCount: 5,
             itemBuilder: (context, index) {
-              return Container(
-                color: Colors.amber,
-                margin: EdgeInsets.all(12),
-                padding: EdgeInsets.all(12),
-                child: Text('$index'),
+              return ListTile(
+                title: Text('$index'),
+                subtitle: Text('index of $index'),
+                leading: FlutterLogo(),
+                trailing: Icon(Icons.settings),
+                onTap: () {
+                  print('click item index : ');
+                  print(index);
+                },
               );
             },
           ),
