@@ -1,3 +1,4 @@
+import 'package:apps_satu/arguments/detail_arguments.dart';
 import 'package:apps_satu/pages/detail_page.dart';
 import 'package:apps_satu/pages/home_page.dart';
 import 'package:apps_satu/pages/unknown_page.dart';
@@ -13,7 +14,8 @@ class AppRouter {
         );
       case '/detail':
         return MaterialPageRoute(
-          builder: (context) => const DetailPage(),
+          builder: (context) =>
+              DetailPage(args: settings.arguments as DetailArguments),
         );
       default:
         return MaterialPageRoute(

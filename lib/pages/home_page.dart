@@ -1,3 +1,4 @@
+import 'package:apps_satu/arguments/detail_arguments.dart';
 import 'package:apps_satu/pages/detail_page.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
@@ -32,7 +33,13 @@ class HomePage extends StatelessWidget {
                   // );
 
                   // Routing with route named
-                  Navigator.of(context).pushNamed('/detail');
+                  Navigator.of(context).pushNamed(
+                    '/detail',
+                    arguments: DetailArguments(
+                      text: 'From Homepage',
+                      isActive: true,
+                    ),
+                  );
                 },
                 child: Text('Go to second screen'),
               ),

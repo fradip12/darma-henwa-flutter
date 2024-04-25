@@ -1,7 +1,9 @@
+import 'package:apps_satu/arguments/detail_arguments.dart';
 import 'package:flutter/material.dart';
 
 class DetailPage extends StatelessWidget {
-  const DetailPage({super.key});
+  final DetailArguments args;
+  const DetailPage({super.key, required this.args});
 
   @override
   Widget build(BuildContext context) {
@@ -10,7 +12,16 @@ class DetailPage extends StatelessWidget {
         title: Text('Detail Pages'),
       ),
       body: Center(
-        child: Text('This is a second screen'),
+        child: Column(
+          children: [
+            Text(args.text ?? '-'),
+            Switch(
+              value: args.isActive!,
+              onChanged: (_) {},
+              activeColor: Colors.green,
+            )
+          ],
+        ),
       ),
     );
   }
