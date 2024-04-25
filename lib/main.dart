@@ -1,4 +1,5 @@
 import 'package:apps_satu/controller/detail_controller.dart';
+import 'package:apps_satu/controller/resto_controller.dart';
 import 'package:apps_satu/navigation/app_router.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
@@ -15,7 +16,10 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MultiProvider(
       providers: [
-        Provider<DetailController>(create: (_) => DetailController()),
+        ChangeNotifierProvider<RestoController>(
+            create: (_) => RestoController()),
+        ChangeNotifierProvider<DetailController>(
+            create: (_) => DetailController()),
       ],
       child: MaterialApp(
         title: 'Flutter Demo',
