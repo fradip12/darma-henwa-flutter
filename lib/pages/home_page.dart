@@ -14,24 +14,31 @@ class HomePage extends StatelessWidget {
           Icon(Icons.notifications),
         ],
       ),
-      body: Center(
-        child: Container(
-          width: 300,
-          height: 160,
-          margin: EdgeInsets.all(16),
-          padding: EdgeInsets.all(16),
-          decoration: BoxDecoration(
-            color: Colors.amber,
-            border: Border.all(),
-            borderRadius: BorderRadius.circular(16),
-          ),
-          child: Column(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: [
-              Text('Flutter Dev'),
-              Text('by'),
-              Text('Google'),
-            ],
+      body: Padding(
+        padding: const EdgeInsets.all(8.0),
+        child: Center(
+          child: Container(
+            width: 300,
+            height: 160,
+            margin: EdgeInsets.all(16),
+            padding: EdgeInsets.all(16),
+            decoration: BoxDecoration(
+              color: Colors.amber,
+              border: Border.all(),
+              borderRadius: BorderRadius.circular(16),
+            ),
+            child: const Row(
+              mainAxisAlignment: MainAxisAlignment.end,
+              crossAxisAlignment: CrossAxisAlignment.end,
+              children: [
+                Padding(
+                  padding: EdgeInsets.all(8.0),
+                  child: FlutterLogo(),
+                ),
+                Text('by'),
+                Text('Google'),
+              ],
+            ),
           ),
         ),
       ),
