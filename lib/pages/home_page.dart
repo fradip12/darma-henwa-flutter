@@ -16,36 +16,43 @@ class HomePage extends StatelessWidget {
       ),
       body: Padding(
         padding: const EdgeInsets.all(8.0),
-        child: GridView.builder(
-          itemCount: 15,
-          gridDelegate:
-              SliverGridDelegateWithFixedCrossAxisCount(crossAxisCount: 2),
-          itemBuilder: (context, index) {
-            return GestureDetector(
-              onTap: () {
-                showDialog(
-                  context: context,
-                  builder: (context) {
-                    return const AlertDialog(
-                      title: Text('This is Alert Dialog'),
-                      content: Text('Ini Alert Dialog'),
-                      actions: [
-                        TextButton(
-                          onPressed: null,
-                          child: Text('Approve'),
-                        )
-                      ],
-                    );
-                  },
-                );
-              },
-              child: Container(
-                margin: EdgeInsets.all(12),
-                color: Colors.greenAccent,
-                child: Text('$index'),
+        child: Center(
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              ElevatedButton(
+                onPressed: () {
+                  showDialog(
+                    context: context,
+                    builder: (context) {
+                      return const AlertDialog(
+                        title: Text('This is Alert Dialog'),
+                        content: Text('Ini Alert Dialog'),
+                        actions: [
+                          TextButton(
+                            onPressed: null,
+                            child: Text('Approve'),
+                          )
+                        ],
+                      );
+                    },
+                  );
+                },
+                child: Text('Show Dialog'),
               ),
-            );
-          },
+              ElevatedButton(
+                onPressed: () {
+                  ScaffoldMessenger.of(context).showSnackBar(
+                    SnackBar(
+                      content: Text('This is snackbar'),
+                      backgroundColor: Colors.red,
+                    ),
+                  );
+                },
+                child: Text('Show Snackbar'),
+              ),
+            ],
+          ),
         ),
       ),
       bottomNavigationBar: BottomNavigationBar(
