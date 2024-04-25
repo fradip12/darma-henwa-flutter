@@ -7,14 +7,29 @@ class HomePage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('App bar'),
+        title: const Text('App bar'),
         leading: Icon(Icons.arrow_back),
         actions: [
           Icon(Icons.filter),
           Icon(Icons.notifications),
         ],
       ),
-      body: Placeholder(),
+      body: Container(
+        width: 300,
+        height: 160,
+        margin: EdgeInsets.all(16),
+        padding: EdgeInsets.all(16),
+        decoration: BoxDecoration(
+          color: Colors.amber,
+          border: Border.all(),
+          borderRadius: BorderRadius.circular(16),
+        ),
+        child: Container(
+          width: 300,
+          height: 160,
+          color: Colors.black,
+        ),
+      ),
       bottomNavigationBar: BottomNavigationBar(
         items: [
           BottomNavigationBarItem(
