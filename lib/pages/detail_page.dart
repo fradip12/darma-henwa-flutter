@@ -19,6 +19,13 @@ class DetailPage extends StatelessWidget {
               value: args.isActive!,
               onChanged: (_) {},
               activeColor: Colors.green,
+            ),
+            ElevatedButton(
+              onPressed: () {
+                // Pop or Back to previous screen
+                Navigator.pop(context);
+              },
+              child: Text('Back'),
             )
           ],
         ),
