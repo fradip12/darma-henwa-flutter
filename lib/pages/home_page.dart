@@ -27,16 +27,28 @@ class HomePage extends StatelessWidget {
               border: Border.all(),
               borderRadius: BorderRadius.circular(16),
             ),
-            child: const Row(
+            child: Row(
               mainAxisAlignment: MainAxisAlignment.end,
               crossAxisAlignment: CrossAxisAlignment.end,
               children: [
-                Padding(
-                  padding: EdgeInsets.all(8.0),
-                  child: FlutterLogo(),
+                Expanded(
+                  flex: 2,
+                  child: Container(
+                    color: Colors.blue,
+                  ),
                 ),
-                Text('by'),
-                Text('Google'),
+                Expanded(
+                  flex: 1,
+                  child: Container(
+                    color: Colors.orange,
+                  ),
+                ),
+                Expanded(
+                  flex: 1,
+                  child: Container(
+                    color: Colors.green,
+                  ),
+                ),
               ],
             ),
           ),
