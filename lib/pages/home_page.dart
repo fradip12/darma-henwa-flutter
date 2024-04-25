@@ -1,3 +1,5 @@
+import 'package:apps_satu/pages/detail_page.dart';
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
 class HomePage extends StatelessWidget {
@@ -22,34 +24,17 @@ class HomePage extends StatelessWidget {
             children: [
               ElevatedButton(
                 onPressed: () {
-                  showDialog(
-                    context: context,
-                    builder: (context) {
-                      return const AlertDialog(
-                        title: Text('This is Alert Dialog'),
-                        content: Text('Ini Alert Dialog'),
-                        actions: [
-                          TextButton(
-                            onPressed: null,
-                            child: Text('Approve'),
-                          )
-                        ],
-                      );
-                    },
-                  );
+                  // Routing to another pages with simple way
+                  // Navigator.of(context).push(
+                  //   MaterialPageRoute(
+                  //     builder: (context) => const DetailPage(),
+                  //   ),
+                  // );
+
+                  // Routing with route named
+                  Navigator.of(context).pushNamed('/detail');
                 },
-                child: Text('Show Dialog'),
-              ),
-              ElevatedButton(
-                onPressed: () {
-                  ScaffoldMessenger.of(context).showSnackBar(
-                    SnackBar(
-                      content: Text('This is snackbar'),
-                      backgroundColor: Colors.red,
-                    ),
-                  );
-                },
-                child: Text('Show Snackbar'),
+                child: Text('Go to second screen'),
               ),
             ],
           ),

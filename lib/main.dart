@@ -1,3 +1,4 @@
+import 'package:apps_satu/navigation/app_router.dart';
 import 'package:apps_satu/pages/home_page.dart';
 import 'package:flutter/material.dart';
 
@@ -17,7 +18,8 @@ class MyApp extends StatelessWidget {
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
         useMaterial3: true,
       ),
-      home: const HomePage(),
+      initialRoute: '/homepage',
+      onGenerateRoute: AppRouter().generateRoute,
     );
   }
 }
