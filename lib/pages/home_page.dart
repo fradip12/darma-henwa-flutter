@@ -17,40 +17,16 @@ class HomePage extends StatelessWidget {
       body: Padding(
         padding: const EdgeInsets.all(8.0),
         child: Center(
-          child: Container(
-            width: 300,
-            height: 160,
-            margin: EdgeInsets.all(16),
-            padding: EdgeInsets.all(16),
-            decoration: BoxDecoration(
-              color: Colors.amber,
-              border: Border.all(),
-              borderRadius: BorderRadius.circular(16),
-            ),
-            child: Row(
-              mainAxisAlignment: MainAxisAlignment.end,
-              crossAxisAlignment: CrossAxisAlignment.end,
-              children: [
-                Expanded(
-                  flex: 2,
-                  child: Container(
-                    color: Colors.blue,
-                  ),
-                ),
-                Expanded(
-                  flex: 1,
-                  child: Container(
-                    color: Colors.orange,
-                  ),
-                ),
-                Expanded(
-                  flex: 1,
-                  child: Container(
-                    color: Colors.green,
-                  ),
-                ),
-              ],
-            ),
+          child: ListView.builder(
+            itemCount: 5,
+            itemBuilder: (context, index) {
+              return Container(
+                color: Colors.amber,
+                margin: EdgeInsets.all(12),
+                padding: EdgeInsets.all(12),
+                child: Text('$index'),
+              );
+            },
           ),
         ),
       ),
