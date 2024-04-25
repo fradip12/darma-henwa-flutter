@@ -17,20 +17,26 @@ class HomePage extends StatelessWidget {
       body: Padding(
         padding: const EdgeInsets.all(8.0),
         child: Center(
-          child: ListView.builder(
-            itemCount: 5,
-            itemBuilder: (context, index) {
-              return ListTile(
-                title: Text('$index'),
-                subtitle: Text('index of $index'),
-                leading: FlutterLogo(),
-                trailing: Icon(Icons.settings),
-                onTap: () {
-                  print('click item index : ');
-                  print(index);
-                },
-              );
-            },
+          child: Stack(
+            alignment: Alignment.bottomCenter,
+            children: [
+              Container(
+                width: 150,
+                height: 150,
+                decoration: BoxDecoration(
+                  color: Colors.blue,
+                  borderRadius: BorderRadius.circular(75),
+                ),
+              ),
+              Container(
+                width: 50,
+                height: 50,
+                decoration: BoxDecoration(
+                  color: Colors.green,
+                  borderRadius: BorderRadius.circular(25),
+                ),
+              )
+            ],
           ),
         ),
       ),
