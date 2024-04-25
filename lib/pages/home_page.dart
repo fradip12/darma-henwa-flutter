@@ -21,10 +21,29 @@ class HomePage extends StatelessWidget {
           gridDelegate:
               SliverGridDelegateWithFixedCrossAxisCount(crossAxisCount: 2),
           itemBuilder: (context, index) {
-            return Container(
-              margin: EdgeInsets.all(12),
-              color: Colors.greenAccent,
-              child: Text('$index'),
+            return GestureDetector(
+              onTap: () {
+                showDialog(
+                  context: context,
+                  builder: (context) {
+                    return const AlertDialog(
+                      title: Text('This is Alert Dialog'),
+                      content: Text('Ini Alert Dialog'),
+                      actions: [
+                        TextButton(
+                          onPressed: null,
+                          child: Text('Approve'),
+                        )
+                      ],
+                    );
+                  },
+                );
+              },
+              child: Container(
+                margin: EdgeInsets.all(12),
+                color: Colors.greenAccent,
+                child: Text('$index'),
+              ),
             );
           },
         ),
