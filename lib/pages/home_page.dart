@@ -31,17 +31,45 @@ class _HomePageState extends State<HomePage> {
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
-              ElevatedButton(
-                onPressed: () {
-                  ApiServices().getData().then((value) {
-                    setState(() {
-                      strData = value;
-                    });
-                  });
+              FutureBuilder(
+                future: ApiServices().getData(),
+                builder: (context, snapshot) {
+                  if (snapshot.connectionState == ConnectionState.waiting) {
+                    return const Column(
+                      children: [
+                        CircularProgressIndicator(),
+                        Text('Waiting ..... '),
+                      ],
+                    );
+                  } else if (snapshot.connectionState == ConnectionState.done) {
+                    return Column(
+                      children: [
+                        const Icon(
+                          Icons.check,
+                          color: Colors.green,
+                        ),
+                        Container(
+                          padding: const EdgeInsets.all(12),
+                          decoration: BoxDecoration(
+                            borderRadius: BorderRadius.circular(12),
+                            color: Colors.amberAccent,
+                          ),
+                          child: Column(
+                            children: [
+                              Text(snapshot.data?['title']),
+                              Text(snapshot.data?['description']),
+                              Text(snapshot.data?['category']),
+                              Text(snapshot.data!['price'].toString()),
+                            ],
+                          ),
+                        )
+                        // Text(snapshot.data ?? '-'),
+                      ],
+                    );
+                  }
+                  return const Text('--');
                 },
-                child: const Text('Get Data'),
               ),
-              Text(strData),
             ],
           ),
         ),
