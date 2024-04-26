@@ -1,4 +1,5 @@
 import 'package:apps_satu/controller/detail_controller.dart';
+import 'package:apps_satu/services/api_services.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
@@ -12,6 +13,7 @@ class HomePage extends StatefulWidget {
 }
 
 class _HomePageState extends State<HomePage> {
+  String strData = '--';
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -31,28 +33,15 @@ class _HomePageState extends State<HomePage> {
             children: [
               ElevatedButton(
                 onPressed: () {
-                  // Routing to another pages with simple way
-                  // Navigator.of(context).push(
-                  //   MaterialPageRoute(
-                  //     builder: (context) => const DetailPage(),
-                  //   ),
-                  // );
-
-                  // Routing with route named
-                  final controller =
-                      Provider.of<DetailController>(context, listen: false);
-
-                  // Event Trigger
-                  controller.selectData(
-                    DetailArguments(
-                      text: 'From Homepage',
-                      isActive: true,
-                    ),
-                  );
-                  Navigator.of(context).pushNamed('/detail');
+                  ApiServices().getData().then((value) {
+                    setState(() {
+                      strData = value;
+                    });
+                  });
                 },
-                child: Text('Go to second screen'),
+                child: const Text('Get Data'),
               ),
+              Text(strData),
             ],
           ),
         ),
