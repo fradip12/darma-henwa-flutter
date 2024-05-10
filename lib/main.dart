@@ -1,4 +1,5 @@
 import 'package:apps_satu/controller/detail_controller.dart';
+import 'package:apps_satu/controller/product_controller.dart';
 import 'package:apps_satu/controller/resto_controller.dart';
 import 'package:apps_satu/navigation/app_router.dart';
 import 'package:flutter/material.dart';
@@ -20,6 +21,8 @@ class MyApp extends StatelessWidget {
             create: (_) => RestoController()),
         ChangeNotifierProvider<DetailController>(
             create: (_) => DetailController()),
+        ChangeNotifierProvider<ProductController>(
+            create: (_) => ProductController()),
       ],
       child: MaterialApp(
         title: 'Flutter Demo',
